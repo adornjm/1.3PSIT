@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header styles */
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            text-decoration: none;
+            font-size: 24px;
+            color: #fff;
+        }
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            display: flex;
+        }
+        .nav-item {
+            margin-right: 20px;
+        }
+        .nav-item:last-child {
+            margin-right: 0;
+        }
+        .nav-item a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+        /* Section styles */
+        section {
+            padding: 40px 0;
+        }
+        .about {
+            background-color: #f4f4f4;
+        }
+        .about h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .about p {
+            font-size: 18px;
+        }
+        .projects {
+            background-color: #f9f9f9;
+        }
+        .projects h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .project {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .project h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .project p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .contact {
+            background-color: #333;
+            color: #fff;
+        }
+        .contact h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .contact a {
+            color: #fff;
+            text-decoration: none;
+        }
+        /* Footer styles */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+    </style>
+    <title>Adorn Jose - Portfolio</title>
+</head>
+<body>
+    <div id="app">
+        <header class="header">
+            <nav class="navbar">
+                <div class="container">
+                    <a href="#" class="logo">Adorn Jose</a>
+                    <ul class="nav-menu">
+                        <li class="nav-item"><router-link to="/about">About</router-link></li>
+                        <li class="nav-item"><router-link to="/projects">Projects</router-link></li>
+                        <li class="nav-item"><router-link to="/contact">Contact</router-link></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <router-view></router-view>
+
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2023 Adorn Jose</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Include Vue.js and Vue Router here -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.4/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-router@4.0.11/dist/vue-router.global.prod.js"></script>
+
+    <script>
+        // Create the About component
+        const About = {
+          template: `
+            <section class="about" id="about">
+              <div class="container">
+                <h1>About Me</h1>
+                <p>Hello, I'm Adorn Jose, an enthusiastic IT student studying in Melbourne. I'm currently in my first year pursuing a Bachelor's degree in Information Technology.</p>
+                <p>During my leisure time, I like to watch movies and explore the fundamentals of coding. I'm constantly excited about acquiring fresh knowledge related to emerging technologies and software tools.</p>
+              </div>
+            </section>
+          `,
+        };
+
+        // Create the Projects component
+        const Projects = {
+          template: `
+            <section class="projects" id="projects">
+              <div class="container">
+                <h1>Projects</h1>
+                <div class="project">
+                  <h2>Project Task 1.1p</h2>
+                  <p>Description of Project 1.1p Created a website for donut shop.</p>
+                  <p><strong>Technologies used:</strong> HTML and CSS</p>
+                </div>
+                <div class="project">
+                  <h2>Project Task 1.2P</h2>
+                  <p>Description of Project 1.2P. I have made a website for Responsive web apps design.</p>
+                  <p><strong>Technologies used:</strong> HTML, CSS, and JavaScript</p>
+                </div>
+              </div>
+            </section>
+          `,
+        };
+
+        // Create the Contact component
+        const Contact = {
+          template: `
+            <section class="contact" id="contact">
+              <div class="container">
+                <h1>Contact Me</h1>
+                <p>If you'd like to get in touch or discuss potential collaborations, please feel free to contact me. You can reach me via email at <a href="mailto:adornjm@gmail.com">adornjm@gmail.com</a>.</p>
+              </div>
+            </section>
+          `,
+        };
+
+        // Set up Vue Router
+        const routes = [
+          { path: '/about', component: About },
+          { path: '/projects', component: Projects },
+          { path: '/contact', component: Contact },
+        ];
+
+        const router = VueRouter.createRouter({
+          history: VueRouter.createWebHistory(),
+          routes,
+        });
+
+        // Create the Vue instance
+        const app = Vue.createApp({});
+        app.use(router);
+        app.mount('#app');
+    </script>
+    
+</body>
+</html>
